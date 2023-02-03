@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="start_screen_intro_text">Welcome to this Template</string>
+    <string name="start_screen_start_button_text">Click here to start</string>
+</resources>
