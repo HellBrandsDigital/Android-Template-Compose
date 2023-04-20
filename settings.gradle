@@ -13,6 +13,99 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+
+    versionCatalogs {
+        libs {
+            version("compose", "1.3.3")
+            version("compose_activity", "1.6.1")
+            version("compose_hilt_nav", "1.1.0-alpha01")
+            version("room", "2.5.1")
+            version("hilt", "2.44.2")
+            version("nav", "2.5.3")
+            version("window", "1.0.0")
+            version("kotlin", "1.8.0")
+            version("lifecycle", "2.6.1")
+            version("core", "1.10.0")
+            version("preference", "1.2.0")
+            version("material3", "1.1.0-alpha05")
+            version("robolectric", "4.9.1")
+            version("test_core", "1.5.0")
+            version("arch_core", "2.2.0")
+            version("turbine", "0.12.1")
+            version("junit", "4.13.2")
+            version("junit_ext", "1.1.5")
+            version("espresso", "3.5.1")
+            version("truth", "1.1.3")
+            version("coroutines", "1.6.4")
+            version("test_rules", "1.5.0")
+            version("kotlin_compiler_ext", "1.4.0")
+            version("kotest", "5.6.1")
+
+            // Main libraries
+            library("compose-ui", "androidx.compose.ui", "ui").withoutVersion()
+            library("compose-ui-tooling", "androidx.compose.ui", "ui-tooling-preview").withoutVersion()
+            library("compose-m3", "androidx.compose.material3", "material3").withoutVersion()
+            library("compose-m3-icons-core", "androidx.compose.material", "material-icons-extended").withoutVersion()
+            library("compose-m3-window", "androidx.compose.material3", "material3-window-size-class").withoutVersion()
+            library("compose-activity", "androidx.activity", "activity-compose").withoutVersion()
+            library("compose-nav", "androidx.navigation", "navigation-compose").versionRef("nav")
+            library("compose-hilt-nav", "androidx.hilt", "hilt-navigation-compose").versionRef("compose_hilt_nav")
+            library("room-runtime", "androidx.room", "room-runtime").versionRef("room")
+            library("room-ktx", "androidx.room", "room-ktx").versionRef("room")
+            library("hilt-android", "com.google.dagger", "hilt-android").versionRef("hilt")
+            library("core-ktx", "androidx.core", "core-ktx").versionRef("core")
+            library("lifecycle-runtime-ktx", "androidx.lifecycle", "lifecycle-runtime-ktx").versionRef("lifecycle")
+            library("lifecycle-viewmodel-compose", "androidx.lifecycle", "lifecycle-viewmodel-compose").versionRef("lifecycle")
+            library("lifecycle-viewmodel-ktx", "androidx.lifecycle", "lifecycle-viewmodel-ktx").versionRef("lifecycle")
+            library("lifecycle-viewmodel-savedstate", "androidx.lifecycle", "lifecycle-viewmodel-savedstate").versionRef("lifecycle")
+            library("preference", "androidx.preference", "preference").versionRef("preference")
+            library("window", "androidx.window", "window").versionRef("window")
+
+            bundle("compose", ["compose-ui", "compose-ui-tooling", "compose-m3", "compose-m3-window", "compose-nav", "compose-hilt-nav", "compose-activity", "compose-m3-icons-core"])
+            bundle("lifecycle", ["lifecycle-runtime-ktx", "lifecycle-viewmodel-compose", "lifecycle-viewmodel-ktx", "lifecycle-viewmodel-savedstate"])
+            bundle("core", ["core-ktx", "room-runtime", "room-ktx", "hilt-android", "window", "preference"])
+            bundle("main", ["compose-ui", "compose-ui-tooling", "compose-m3", "compose-m3-window", "compose-m3-icons-core", "compose-nav", "compose-hilt-nav", "compose-activity", "lifecycle-runtime-ktx", "lifecycle-viewmodel-compose", "lifecycle-viewmodel-ktx", "lifecycle-viewmodel-savedstate", "core-ktx", "room-runtime", "room-ktx", "hilt-android", "window", "preference"])
+
+            // Debug libraries
+            library("compose-ui-tool", "androidx.compose.ui", "ui-tooling").withoutVersion()
+            library("compose-ui-test", "androidx.compose.ui", "ui-test-manifest").withoutVersion()
+
+            bundle("composeDebug", ["compose-ui-tool", "compose-ui-test"])
+
+            // Test libraries
+            library("robolectric", "org.robolectric", "robolectric").versionRef("robolectric")
+            library("test-core", "androidx.test", "core").versionRef("test_core")
+            library("junit", "junit", "junit").versionRef("junit")
+            library("hilt-android-testing", "com.google.dagger", "hilt-android-testing").versionRef("hilt")
+            library("truth", "com.google.truth", "truth").versionRef("truth")
+            library("coroutines-test", "org.jetbrains.kotlinx", "kotlinx-coroutines-test").versionRef("coroutines")
+            library("kotest-runner-junit5", "io.kotest", "kotest-runner-junit5").versionRef("kotest")
+            library("kotest-assertions-core", "io.kotest", "kotest-assertions-core").versionRef("kotest")
+            library("kotest-property", "io.kotest", "kotest-property").versionRef("kotest")
+
+            bundle("test", ["robolectric", "test-core", "junit", "hilt-android-testing", "truth", "coroutines-test", "kotest-runner-junit5", "kotest-assertions-core", "kotest-property"])
+
+            // Android test libraries
+            library("arch-core", "androidx.arch.core", "core-testing").versionRef("arch_core")
+            library("turbine", "app.cash.turbine", "turbine").versionRef("turbine")
+            library("junit-ext", "androidx.test.ext", "junit").versionRef("junit_ext")
+            library("espresso", "androidx.test.espresso", "espresso-core").versionRef("espresso")
+            library("test-rules", "androidx.test", "rules").versionRef("test_rules")
+            library("hilt-android-testing", "com.google.dagger", "hilt-android-testing").versionRef("hilt")
+            library("compose-ui-test-junit4", "androidx.compose.ui", "ui-test-junit4").withoutVersion()
+            library("truth", "com.google.truth", "truth").versionRef("truth")
+            library("coroutines-test", "org.jetbrains.kotlinx", "kotlinx-coroutines-test").versionRef("coroutines")
+
+            bundle("androidTest", ["arch-core", "turbine", "junit-ext", "espresso", "test-rules", "hilt-android-testing", "compose-ui-test-junit4", "truth", "coroutines-test"])
+
+            // Kapt libraries
+            library("room-compiler", "androidx.room", "room-compiler").versionRef("room")
+            library("hilt-compiler", "com.google.dagger", "hilt-android-compiler").versionRef("hilt")
+
+            bundle("kapt", ["room-compiler", "hilt-compiler"])
+        }
+    }
+
 }
 rootProject.name = "Android Template Compose"
 include ':app'
