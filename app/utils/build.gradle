@@ -40,6 +40,6 @@ android {
 }
 
 dependencies {
-    implementation "androidx.preference:preference-ktx:$preference_version"
-    implementation "androidx.window:window:$window_version"
+    implementation libs.preference
+    implementation libs.window
 }
